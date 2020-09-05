@@ -1,18 +1,39 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+import { createInjectorsEnhancer } from 'redux-injectors';
+import { createReducer } from './reducer';
+import { rootSaga } from './saga';
 
-import rootReducer from './rootReducer'
+export type ApplicationState = {
 
-const store = configureStore({
-  reducer: rootReducer
-})
+};
 
-if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./rootReducer', () => {
-    const newRootReducer = require('./rootReducer').default
-    store.replaceReducer(newRootReducer)
-  })
+function configureAppStore(initialState: ApplicationState) {
+  const reduxSagaMonitorOptions = {};
+  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
+
+  const { run: runSaga } = sagaMiddleware;
+
+  // sagaMiddleware: Makes redux saga works
+  const middlewares = [sagaMiddleware];
+
+  const enhancers = [
+    createInjectorsEnhancer({
+      createReducer,
+      runSaga
+    })
+  ];
+
+  const store = configureStore({
+    reducer: createReducer(),
+    middleware: [...getDefaultMiddleware(), ...middlewares],
+    preloadedState: initialState,
+    devTools: process.env.NODE_ENV !== 'production',
+    enhancers
+  });
+
+  sagaMiddleware.run(rootSaga);
+  return store;
 }
-
-export type AppDispatch = typeof store.dispatch
-
-export default store
+ 
+export { configureAppStore };

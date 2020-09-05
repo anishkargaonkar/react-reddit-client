@@ -1,7 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './store';
+import { ApplicationState, configureAppStore } from './store';
 import { Navigator } from "./navigator/Navigator";
+
+const initialState: ApplicationState = {};
+const store = configureAppStore(initialState);
 
 function App() {
   return (
