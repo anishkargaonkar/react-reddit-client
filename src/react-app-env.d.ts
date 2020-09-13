@@ -1,3 +1,3 @@
 /// <reference types="react-scripts" />
-REACT_PRODUCTION_API_ENDPOINT = "production_url"
-REACT_DEVELOPMENT_API_ENDPOINT = "development_url"
+REACT_PRODUCTION_API_ENDPOINT = "https://www.reddit.com"
+REACT_DEVELOPMENT_API_ENDPOINT = "https://www.reddit.com"
