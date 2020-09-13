@@ -147,3 +147,9 @@ export interface Search {
   kind: string;
   data: SearchResults;
 }
+
+export enum SearchActionTypes {
+    GET_RESULTS_REQUEST = "@@search/GET_RESULTS_REQUEST",
+    GET_RESULTS_SUCCESS = "@@search/GET_RESULTS_SUCCESS",
+    GET_RESULTS_ERROR = "@@search/GET_RESULTS_ERROR",  
+}
