@@ -1,8 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
+import { searchReducer } from './containers/Search/reducer';
 
-function createRootReducer(injectedReducers = {}) {
+const reducers = {
+  search: searchReducer
+};
+
+function createRootReducer() {
     const rootReducer = combineReducers({
-      ...injectedReducers
+      ...reducers
     });
   
     return rootReducer;

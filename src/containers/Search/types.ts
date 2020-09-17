@@ -1,3 +1,5 @@
+import { Search } from "./Search";
+
 export interface ResizedIcon {
   url: string;
   width: number;
@@ -136,9 +138,9 @@ export interface SearchResults {
   after: string;
   dist: number;
   modhash: string;
-    children: {
-        kind: string;
-        data: Result;
+  children: {
+    kind: string;
+    data: Result;
   };
   before?: any;
 }
@@ -148,8 +150,18 @@ export interface Search {
   data: SearchResults;
 }
 
+interface Errors {
+  results: Error | null
+}
+
 export enum SearchActionTypes {
-    GET_RESULTS_REQUEST = "@@search/GET_RESULTS_REQUEST",
-    GET_RESULTS_SUCCESS = "@@search/GET_RESULTS_SUCCESS",
-    GET_RESULTS_ERROR = "@@search/GET_RESULTS_ERROR",  
+  GET_RESULTS_REQUEST = "@@search/GET_RESULTS_REQUEST",
+  GET_RESULTS_SUCCESS = "@@search/GET_RESULTS_SUCCESS",
+  GET_RESULTS_ERROR = "@@search/GET_RESULTS_ERROR",
+}
+
+export interface SearchState {
+  isLoading: boolean,
+  results: Search | null,
+  errors: Errors
 }
