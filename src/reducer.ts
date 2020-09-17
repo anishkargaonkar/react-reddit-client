@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-function createReducer(injectedReducers = {}) {
+function createRootReducer(injectedReducers = {}) {
     const rootReducer = combineReducers({
       ...injectedReducers
     });
@@ -8,4 +8,4 @@ function createReducer(injectedReducers = {}) {
     return rootReducer;
 };
   
-export { createReducer };
+export { createRootReducer };
