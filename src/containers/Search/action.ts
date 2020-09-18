@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
-import { Search, SearchActionTypes } from "./types";
+import { Search, SearchActionTypes, SearchQuery } from "./types";
 
-export const getResultsRequest = createAction(
+export const getResultsRequest = createAction<SearchQuery>(
   SearchActionTypes.GET_RESULTS_REQUEST
 );
 

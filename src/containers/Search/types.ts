@@ -150,6 +150,11 @@ export interface Search {
   data: SearchResults;
 }
 
+export interface SearchQuery {
+  query: string;
+  limit: number;
+};
+
 interface Errors {
   results: Error | null
 }
