@@ -1,4 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
+import { CustomError } from "../../utils/api-helper";
 import { Search, SearchActionTypes, SearchQuery } from "./types";
 
 export const getResultsRequest = createAction<SearchQuery>(
@@ -9,6 +10,6 @@ export const getResultsSuccess = createAction<Search>(
   SearchActionTypes.GET_RESULTS_SUCCESS
 );
 
-export const getResultsError = createAction<Error>(
+export const getResultsError = createAction<CustomError>(
   SearchActionTypes.GET_RESULTS_ERROR
 );

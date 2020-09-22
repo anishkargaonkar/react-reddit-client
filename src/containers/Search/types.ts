@@ -1,3 +1,4 @@
+import { CustomError } from "../../utils/api-helper";
 import { Search } from "./Search";
 
 export interface ResizedIcon {
@@ -156,7 +157,7 @@ export interface SearchQuery {
 };
 
 interface Errors {
-  results: Error | null
+  results: CustomError | null
 }
 
 export enum SearchActionTypes {
