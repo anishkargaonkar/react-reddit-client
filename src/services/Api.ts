@@ -4,7 +4,9 @@ import { SearchQuery } from "../containers/Search/types";
 
 const { isProd } = config;
 
-const API_ENDPOINT = isProd ? config.production : config.development;
+const API_ENDPOINT = isProd
+  ? config.production.api_endpoint
+  : config.development.api_endpoint;
 
 export const fetchSearchResults = (params: SearchQuery) => {
   const { query, limit } = params;
