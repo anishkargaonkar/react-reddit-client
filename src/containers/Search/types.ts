@@ -142,7 +142,7 @@ export interface SearchResults {
   children: {
     kind: string;
     data: Result;
-  };
+  }[];
   before?: any;
 }
 
@@ -164,6 +164,8 @@ export enum SearchActionTypes {
   GET_RESULTS_REQUEST = "@@search/GET_RESULTS_REQUEST",
   GET_RESULTS_SUCCESS = "@@search/GET_RESULTS_SUCCESS",
   GET_RESULTS_ERROR = "@@search/GET_RESULTS_ERROR",
+
+  RESET_RESULTS = '@@search/RESET_RESULTS'
 }
 
 export interface SearchState {

@@ -3,6 +3,7 @@ import {
   getResultsError,
   getResultsRequest,
   getResultsSuccess,
+  resetResults,
 } from "./action";
 import { SearchState } from "./types";
 
@@ -28,6 +29,9 @@ const reducer = createReducer(initalState, (builder) => {
     .addCase(getResultsError, (state, action) => {
       state.isLoading = false;
       state.errors.results = action.payload;
+    })
+    .addCase(resetResults, (state, action) => {
+      state.results = null;
     });
 });
 
