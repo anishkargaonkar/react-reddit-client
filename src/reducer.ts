@@ -1,11 +1,15 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-function createReducer(injectedReducers = {}) {
+const reducers = {
+  // ...reducers 
+};
+
+function createRootReducer() {
     const rootReducer = combineReducers({
-      ...injectedReducers
+      ...reducers
     });
   
     return rootReducer;
 };
   
-export { createReducer };
+export { createRootReducer };
