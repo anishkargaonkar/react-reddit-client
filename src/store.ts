@@ -1,11 +1,12 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { createInjectorsEnhancer } from 'redux-injectors';
-import { createReducer } from './reducer';
+import { createRootReducer } from './reducer';
 import { rootSaga } from './saga';
+import { SearchState } from './containers/Search/types';
 
 export type ApplicationState = {
-
+  search: SearchState
 };
 
 function configureAppStore(initialState: ApplicationState) {
@@ -19,13 +20,13 @@ function configureAppStore(initialState: ApplicationState) {
 
   const enhancers = [
     createInjectorsEnhancer({
-      createReducer,
+      createReducer: createRootReducer,
       runSaga
     })
   ];
 
   const store = configureStore({
-    reducer: createReducer(),
+    reducer: createRootReducer(),
     middleware: [...getDefaultMiddleware(), ...middlewares],
     preloadedState: initialState,
     devTools: process.env.NODE_ENV !== 'production',
