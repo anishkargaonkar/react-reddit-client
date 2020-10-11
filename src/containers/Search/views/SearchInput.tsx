@@ -18,7 +18,7 @@ const SearchInput: FC<Props> = (props: Props) => {
     (s) => s.search.isLoading
   );
 
-  const onSearchQueryChanegeHandler = (
+  const onSearchQueryChangeHandler = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const val = e.target.value;
@@ -44,7 +44,7 @@ const SearchInput: FC<Props> = (props: Props) => {
         placeholder="Search for a topic"
         loading={isLoading}
         value={searchQuery}
-        onChange={onSearchQueryChanegeHandler}
+        onChange={onSearchQueryChangeHandler}
         onSearch={onSearchHandler}
       />
     </div>
