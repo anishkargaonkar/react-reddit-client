@@ -1,6 +1,7 @@
 # React Reddit Client
-This project is a sample for structuring react projects for scale
+This project is a sample for structuring react projects for scale.
 
+Hosted On: https://reddit-client-88d34d.netlify.app/
 
 ## Available Scripts
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
